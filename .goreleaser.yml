@@ -1,0 +1,14 @@
+builds:
+  - id: twi18n
+    binary: twi18n
+    main: ./cmd/twi18n
+    goarch:
+      - amd64
+      - arm64
+      - arm
+archives:
+  - id: twi18n
+    builds:
+      - twi18n
+    format: zip
+    name_template: 'twi18n_{{ .Version }}_{{- if eq .Os "darwin" }}macos{{- else }}{{ .Os }}{{ end }}_{{ .Arch }}'
